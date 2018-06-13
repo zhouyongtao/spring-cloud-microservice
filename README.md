@@ -13,3 +13,5 @@ java -version
 ```
 spring-cloud(Finchley.RC2) document
 http://cloud.spring.io/spring-cloud-static/Finchley.RC2/single/spring-cloud.html
+
+nohup java -jar microsrv-eureka-server-0.0.1-SNAPSHOT.jar &
