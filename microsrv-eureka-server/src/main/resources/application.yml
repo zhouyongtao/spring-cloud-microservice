@@ -1,4 +1,4 @@
-﻿# doc: http://projects.spring.io/spring-cloud/docs/1.0.3/spring-cloud.html#_standalone_mode
+﻿# http://cloud.spring.io/spring-cloud-static/Finchley.RC2/single/spring-cloud.html#_spring_cloud_netflix
 spring:
   application:
     name: microsrv-eureka-server
