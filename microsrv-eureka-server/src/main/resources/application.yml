@@ -1,4 +1,4 @@
-# doc: http://projects.spring.io/spring-cloud/docs/1.0.3/spring-cloud.html#_standalone_mode
+ï»¿# doc: http://projects.spring.io/spring-cloud/docs/1.0.3/spring-cloud.html#_standalone_mode
 spring:
   application:
     name: microsrv-eureka-server
@@ -10,10 +10,10 @@ eureka:
   instance:
     hostname: localhost
   client:
-    #±íÊ¾ÊÇ·ñ½«×Ô¼º×¢²áµ½Eureka ServerÉÏ£¬Ä¬ÈÏÎªtrue£¬µ±Ç°Ó¦ÓÃÎªEureka ServerËùÒÔÎŞĞè×¢²á
+    #è¡¨ç¤ºæ˜¯å¦å°†è‡ªå·±æ³¨å†Œåˆ°Eureka Serverä¸Šï¼Œé»˜è®¤ä¸ºtrueï¼Œå½“å‰åº”ç”¨ä¸ºEureka Serveræ‰€ä»¥æ— éœ€æ³¨å†Œ
     registerWithEureka: false
-    #±íÊ¾ÊÇ·ñ´ÓEureka Server»ñÈ¡×¢²áĞÅÏ¢£¬Ä¬ÈÏÎªtrue¡£ÒòÎªÕâÊÇÒ»¸öµ¥µãµÄEureka Server£¬²»ĞèÒªÍ¬²½ÆäËûµÄEureka Server½ÚµãµÄÊı¾İ£¬¹Ê¶øÉèÎªfalse¡£
+    #è¡¨ç¤ºæ˜¯å¦ä»Eureka Serverè·å–æ³¨å†Œä¿¡æ¯ï¼Œé»˜è®¤ä¸ºtrueã€‚å› ä¸ºè¿™æ˜¯ä¸€ä¸ªå•ç‚¹çš„Eureka Serverï¼Œä¸éœ€è¦åŒæ­¥å…¶ä»–çš„Eureka ServerèŠ‚ç‚¹çš„æ•°æ®ï¼Œæ•…è€Œè®¾ä¸ºfalseã€‚
     fetchRegistry: false
-    #Eureka ServerµÄ·ÃÎÊµØÖ·£¬·şÎñ×¢²áºÍclient»ñÈ¡·şÎñ×¢²áĞÅÏ¢¾ùÍ¨¹ı¸ÃURL£¬¶à¸ö·şÎñ×¢²áµØÖ·ÓÃ,¸ô¿ª
+    #Eureka Serverçš„è®¿é—®åœ°å€ï¼ŒæœåŠ¡æ³¨å†Œå’Œclientè·å–æœåŠ¡æ³¨å†Œä¿¡æ¯å‡é€šè¿‡è¯¥URLï¼Œå¤šä¸ªæœåŠ¡æ³¨å†Œåœ°å€ç”¨,éš”å¼€
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
