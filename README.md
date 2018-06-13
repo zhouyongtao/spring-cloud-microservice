@@ -9,3 +9,7 @@ sudo apt-get update
 sudo apt-get install oracle-java8-installer
 java -version
 ```
+
+```
+spring-cloud(Finchley.RC2) document
+http://cloud.spring.io/spring-cloud-static/Finchley.RC2/single/spring-cloud.html
