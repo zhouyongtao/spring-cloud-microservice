@@ -8,7 +8,10 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
+    #hostname: localhost
+    prefer-ip-address: true #以IP地址注册到服务中心
+    #ip-address: 192.168.1.1 #强制指定IP地址，默认会使用本机的 IP 地址
+
   client:
     #表示是否将自己注册到Eureka Server上，默认为true，当前应用为Eureka Server所以无需注册
     registerWithEureka: false
