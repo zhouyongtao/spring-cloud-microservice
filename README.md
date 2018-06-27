@@ -17,4 +17,8 @@ http://cloud.spring.io/spring-cloud-static/Finchley.RC2/single/spring-cloud.html
 nohup java -jar microsrv-eureka-server-0.0.1-SNAPSHOT.jar &
 
 
+http://cloud.spring.io/spring-cloud-static/Finchley.RELEASE/single/spring-cloud.html
+https://docs.spring.io/spring-boot/docs/2.0.3.RELEASE/reference/htmlsingle
 https://github.com/spring-cloud-samples/hystrix-dashboard
+
+
