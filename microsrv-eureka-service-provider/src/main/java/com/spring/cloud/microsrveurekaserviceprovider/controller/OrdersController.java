@@ -1,4 +1,4 @@
-package com.spring.cloud.microsrveurekaserviceprovider;
+package com.spring.cloud.microsrveurekaserviceprovider.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
