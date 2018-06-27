@@ -3,7 +3,7 @@
     name: microsrv-eureka-server
 
 server:
-  port: 80
+  port: 8000
 
 eureka:
   instance:
