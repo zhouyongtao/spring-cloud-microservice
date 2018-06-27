@@ -8,7 +8,7 @@ server:
 eureka:
   instance:
     hostname: localhost
-    #prefer-ip-address: true
+    prefer-ip-address: true
     #ip-address:10.255.131.162
 
   client:
