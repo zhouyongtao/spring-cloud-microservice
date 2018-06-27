@@ -3,11 +3,11 @@
     name: microsrv-eureka-server
 
 server:
-  port: 8000
+  port: 80
 
 eureka:
   instance:
-    hostname: 127.0.0.1
+    hostname: localhost
     #prefer-ip-address: true
     #ip-address: 10.255.131.162
 
