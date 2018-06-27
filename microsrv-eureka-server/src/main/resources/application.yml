@@ -16,4 +16,4 @@ eureka:
     fetchRegistry: false
     #Eureka Server的访问地址，服务注册和client获取服务注册信息均通过该URL，多个服务注册地址用,隔开
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+          defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
