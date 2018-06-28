@@ -15,11 +15,12 @@ server:
   port: 8000
 eureka:
   instance:
-    prefer-ip-address: true
+    #hostname: localhost
+    #prefer-ip-address: true
     ip-address: 10.255.131.162
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: true
+    fetchRegistry: true
     service-url:
       defaultZone: http://10.255.131.163:${server.port}/eureka/,http://10.255.131.164:${server.port}/eureka/
 
@@ -30,11 +31,12 @@ server:
   port: 8000
 eureka:
   instance:
-    prefer-ip-address: true
+    #hostname: localhost
+    #prefer-ip-address: true
     ip-address: 10.255.131.163
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: true
+    fetchRegistry: true
     service-url:
       defaultZone: http://10.255.131.162:${server.port}/eureka/,http://10.255.131.164:${server.port}/eureka/
 
@@ -45,10 +47,11 @@ server:
   port: 8000
 eureka:
   instance:
-    prefer-ip-address: true
+    #hostname: localhost
+    #prefer-ip-address: true
     ip-address: 10.255.131.164
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: true
+    fetchRegistry: true
     service-url:
       defaultZone: http://10.255.131.162:${server.port}/eureka/,http://10.255.131.163:${server.port}/eureka/
