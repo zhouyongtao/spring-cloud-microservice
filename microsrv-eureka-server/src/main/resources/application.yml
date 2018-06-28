@@ -2,17 +2,41 @@
   application:
     name: microsrv-eureka-server
 
+---
+spring:
+  profiles: peer1
 server:
   port: 8000
-
 eureka:
   instance:
-    hostname: localhost
-    #prefer-ip-address: true
-    #ip-address: 10.255.131.162
-
+    prefer-ip-address: true
+    ip-address: 10.255.131.162
   client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    service-url:
+      defaultZone: http://10.255.131.163:${server.port}/eureka/,http://10.255.131.164:${server.port}/eureka/
+
+---
+spring:
+  profiles: peer2
+server:
+  port: 8100
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 10.255.131.163
+  client:
+    service-url:
+      defaultZone: http://10.255.131.162:${server.port}/eureka/,http://10.255.131.164:${server.port}/eureka/
+
+---
+spring:
+  profiles: peer3
+server:
+  port: 8100
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 10.255.131.164
+  client:
+    service-url:
+      defaultZone: http://10.255.131.162:${server.port}/eureka/,http://10.255.131.163:${server.port}/eureka/
