@@ -28,3 +28,4 @@
 */target/
 microsrv-eureka-service-provider/src/main/resources/static/
 microsrv-eureka-service-provider/src/main/resources/templates/
+application.yml

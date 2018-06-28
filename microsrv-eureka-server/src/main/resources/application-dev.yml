@@ -9,7 +9,7 @@ eureka:
   instance:
     hostname: localhost
     #prefer-ip-address: true
-    #ip-address: 10.255.131.162
+    #ip-address: 192.168.1.1
 
   client:
     registerWithEureka: false
