@@ -28,4 +28,14 @@ netstat -tunlp
 netstat -apn | grep 8000
 
 java -jar microsrv-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer1
-cat /etc/hosts
+java -jar microsrv-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer2
+java -jar microsrv-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer3
+
+vi /etc/hosts
+
+10.255.131.162       microsrv-eureka-server-peer1
+10.255.131.163       microsrv-eureka-server-peer2
+10.255.131.164       microsrv-eureka-server-peer3
+
+vi /etc/hosts
+iZuf6i3b97wsrn5x2oic17Z

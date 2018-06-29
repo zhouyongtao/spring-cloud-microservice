@@ -1,4 +1,60 @@
-﻿spring:
+﻿#### HOST 方式
+#spring:
+#  application:
+#    name: microsrv-eureka-server
+#  profiles:
+#    active: peer1
+##logging:
+##  level:
+##    com.netflix.eureka: 'off'
+##    com.netflix.discovery: 'off'
+#
+#---
+#spring:
+#  profiles: peer1
+#server:
+#  port: 8000
+#eureka:
+#  instance:
+#    hostname: microsrv-eureka-server-peer1
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    service-url:
+#      defaultZone: http://microsrv-eureka-server-peer2:${server.port}/eureka/,http://microsrv-eureka-server-peer3:${server.port}/eureka/
+#
+#---
+#spring:
+#  profiles: peer2
+#server:
+#  port: 8000
+#eureka:
+#  instance:
+#    hostname: microsrv-eureka-server-peer2
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    service-url:
+#      defaultZone: http://microsrv-eureka-server-peer1:${server.port}/eureka/,http://microsrv-eureka-server-peer3:${server.port}/eureka/
+#
+#---
+#spring:
+#  profiles: peer3
+#server:
+#  port: 8000
+#eureka:
+#  instance:
+#    hostname: microsrv-eureka-server-peer3
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    service-url:
+#      defaultZone: http://microsrv-eureka-server-peer1:${server.port}/eureka/,http://microsrv-eureka-server-peer2:${server.port}/eureka/
+#
+
+
+## IP 的方式
+spring:
   application:
     name: microsrv-eureka-server
   profiles:
@@ -15,8 +71,7 @@ server:
   port: 8000
 eureka:
   instance:
-    #hostname: localhost
-    #prefer-ip-address: true
+    prefer-ip-address: true
     ip-address: 10.255.131.162
   client:
     registerWithEureka: true
@@ -31,8 +86,7 @@ server:
   port: 8000
 eureka:
   instance:
-    #hostname: localhost
-    #prefer-ip-address: true
+    prefer-ip-address: true
     ip-address: 10.255.131.163
   client:
     registerWithEureka: true
@@ -47,8 +101,7 @@ server:
   port: 8000
 eureka:
   instance:
-    #hostname: localhost
-    #prefer-ip-address: true
+    prefer-ip-address: true
     ip-address: 10.255.131.164
   client:
     registerWithEureka: true
