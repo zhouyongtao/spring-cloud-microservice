@@ -37,5 +37,5 @@ vi /etc/hosts
 10.255.131.163       microsrv-eureka-server-peer2
 10.255.131.164       microsrv-eureka-server-peer3
 
-vi /etc/hosts
-iZuf6i3b97wsrn5x2oic17Z
+echo `hostname`
+127.0.0.1       localhost                               iZuf60cj5pna5im3va46nkZ
