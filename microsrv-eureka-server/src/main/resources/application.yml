@@ -1,59 +1,4 @@
 ﻿#### HOST 方式
-#spring:
-#  application:
-#    name: microsrv-eureka-server
-#  profiles:
-#    active: peer1
-##logging:
-##  level:
-##    com.netflix.eureka: 'off'
-##    com.netflix.discovery: 'off'
-#
-#---
-#spring:
-#  profiles: peer1
-#server:
-#  port: 8000
-#eureka:
-#  instance:
-#    hostname: microsrv-eureka-server-peer1
-#  client:
-#    registerWithEureka: true
-#    fetchRegistry: true
-#    service-url:
-#      defaultZone: http://microsrv-eureka-server-peer2:${server.port}/eureka/,http://microsrv-eureka-server-peer3:${server.port}/eureka/
-#
-#---
-#spring:
-#  profiles: peer2
-#server:
-#  port: 8000
-#eureka:
-#  instance:
-#    hostname: microsrv-eureka-server-peer2
-#  client:
-#    registerWithEureka: true
-#    fetchRegistry: true
-#    service-url:
-#      defaultZone: http://microsrv-eureka-server-peer1:${server.port}/eureka/,http://microsrv-eureka-server-peer3:${server.port}/eureka/
-#
-#---
-#spring:
-#  profiles: peer3
-#server:
-#  port: 8000
-#eureka:
-#  instance:
-#    hostname: microsrv-eureka-server-peer3
-#  client:
-#    registerWithEureka: true
-#    fetchRegistry: true
-#    service-url:
-#      defaultZone: http://microsrv-eureka-server-peer1:${server.port}/eureka/,http://microsrv-eureka-server-peer2:${server.port}/eureka/
-#
-
-
-## IP 的方式
 spring:
   application:
     name: microsrv-eureka-server
@@ -71,14 +16,12 @@ server:
   port: 8000
 eureka:
   instance:
-    prefer-ip-address: true
-    ip-address: 10.255.131.162
-   # instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    hostname: microsrv-eureka-server-peer1
   client:
     registerWithEureka: true
     fetchRegistry: true
     service-url:
-      defaultZone: http://10.255.131.163:${server.port}/eureka/,http://10.255.131.164:${server.port}/eureka/
+      defaultZone: http://microsrv-eureka-server-peer2:${server.port}/eureka/,http://microsrv-eureka-server-peer3:${server.port}/eureka/
 
 ---
 spring:
@@ -87,13 +30,12 @@ server:
   port: 8000
 eureka:
   instance:
-    prefer-ip-address: true
-    ip-address: 10.255.131.163
+    hostname: microsrv-eureka-server-peer2
   client:
     registerWithEureka: true
     fetchRegistry: true
     service-url:
-      defaultZone: http://10.255.131.162:${server.port}/eureka/,http://10.255.131.164:${server.port}/eureka/
+      defaultZone: http://microsrv-eureka-server-peer1:${server.port}/eureka/,http://microsrv-eureka-server-peer3:${server.port}/eureka/
 
 ---
 spring:
@@ -102,10 +44,68 @@ server:
   port: 8000
 eureka:
   instance:
-    prefer-ip-address: true
-    ip-address: 10.255.131.164
+    hostname: microsrv-eureka-server-peer3
   client:
     registerWithEureka: true
     fetchRegistry: true
     service-url:
-      defaultZone: http://10.255.131.162:${server.port}/eureka/,http://10.255.131.163:${server.port}/eureka/
+      defaultZone: http://microsrv-eureka-server-peer1:${server.port}/eureka/,http://microsrv-eureka-server-peer2:${server.port}/eureka/
+
+
+#
+### IP 的方式
+#spring:
+#  application:
+#    name: microsrv-eureka-server
+#  profiles:
+#    active: peer1
+##logging:
+##  level:
+##    com.netflix.eureka: 'off'
+##    com.netflix.discovery: 'off'
+#
+#---
+#spring:
+#  profiles: peer1
+#server:
+#  port: 8000
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#    ip-address: 10.255.131.162
+#   # instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    service-url:
+#      defaultZone: http://10.255.131.163:${server.port}/eureka/,http://10.255.131.164:${server.port}/eureka/
+#
+#---
+#spring:
+#  profiles: peer2
+#server:
+#  port: 8000
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#    ip-address: 10.255.131.163
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    service-url:
+#      defaultZone: http://10.255.131.162:${server.port}/eureka/,http://10.255.131.164:${server.port}/eureka/
+#
+#---
+#spring:
+#  profiles: peer3
+#server:
+#  port: 8000
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#    #ip-address: 10.255.131.164
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    service-url:
+#      defaultZone: http://10.255.131.162:${server.port}/eureka/,http://10.255.131.163:${server.port}/eureka/
