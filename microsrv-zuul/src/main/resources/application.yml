@@ -1,6 +1,6 @@
 spring:
   application:
-    name: microsrv-zuul-server
+    name: microsrv-gateway-zuul
 
 server:
   port: 5555
