@@ -1,0 +1,26 @@
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+
+spring:
+  application:
+    name: microsrv-api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+#      routes:
+#        - id: default_path_to_http
+#          uri: https://windmt.com
+#          order: 10000
+#          predicates:
+#            - Path=/**
+#          filters:
+#            - SetPath=/
+server:
+  port: 5555
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.255.131.162:8000/eureka/,http://10.255.131.163:8000/eureka/,http://10.255.131.164:8000/eureka/
