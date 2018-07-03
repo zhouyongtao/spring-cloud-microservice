@@ -15,6 +15,9 @@ spring:
 server:
   port: 8000
 eureka:
+  server:
+    enableSelfPreservation: false
+    evictionIntervalTimerInMs: 5000
   instance:
     hostname: microsrv-eureka-server-peer1
   client:
@@ -29,6 +32,9 @@ spring:
 server:
   port: 8000
 eureka:
+  server:
+    enableSelfPreservation: false
+    evictionIntervalTimerInMs: 5000
   instance:
     hostname: microsrv-eureka-server-peer2
   client:
@@ -43,6 +49,9 @@ spring:
 server:
   port: 8000
 eureka:
+  server:
+    enableSelfPreservation: false
+    evictionIntervalTimerInMs: 5000
   instance:
     hostname: microsrv-eureka-server-peer3
   client:
