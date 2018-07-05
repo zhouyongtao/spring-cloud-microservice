@@ -1,4 +1,4 @@
-﻿#### HOST 方式
+﻿## HOST 方式
 spring:
   application:
     name: microsrv-eureka-server
@@ -62,7 +62,7 @@ eureka:
 
 
 #
-### IP 的方式
+## IP 的方式
 #spring:
 #  application:
 #    name: microsrv-eureka-server
