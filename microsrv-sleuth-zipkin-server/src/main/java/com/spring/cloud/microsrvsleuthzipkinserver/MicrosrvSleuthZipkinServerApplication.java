@@ -3,7 +3,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
-import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.web.client.RestTemplate;
 import zipkin2.Span;
 import zipkin2.reporter.Reporter;
@@ -13,8 +13,8 @@ import zipkin2.reporter.Reporter;
 * https://github.com/spring-cloud/spring-cloud-sleuth
 * */
 
-@EnableAsync
 @SpringBootApplication
+@EnableEurekaClient
 public class MicrosrvSleuthZipkinServerApplication {
 
     public static void main(String[] args) {

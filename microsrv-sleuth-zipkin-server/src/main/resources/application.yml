@@ -1,12 +1,19 @@
+spring:
+? application:
+??? name: microsrv-sleuth-zipkin-server
+? zipkin:
+??? enabled: true
+? sleuth:
+??? sampler:
+????? percentage: 1.0
 server:
   port: 5000
+eureka:
+  client:
+#    register-with-eureka: true #是否将eureka自身作为应用注册到eureka注册中心
+#    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://10.255.131.162:8000/eureka/,http://10.255.131.163:8000/eureka/,http://10.255.131.164:8000/eureka/
+  instance:
+    prefer-ip-address: true
 
-spring:
-  application:
-    name: microsrv-sleuth-zipkin-server
-  #zipkin:
-    # Uncomment to send to zipkin, replacing 192.168.99.100 with your zipkin IP address
-    # baseUrl: http://192.168.99.100:9411/
-  sleuth:
-    sampler:
-      probability: 1.0
