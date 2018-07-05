@@ -26,10 +26,18 @@ public class OAuth2TokenFilter extends ZuulFilter {
 
     @Override
     public Object run() {
-        RequestContext ctx = RequestContext.getCurrentContext();
-        HttpServletRequest request = ctx.getRequest();
-        String userName = request.getParameter("userName");
-        logger.info("userName: "+userName);
+        RequestContext requestContext = RequestContext.getCurrentContext();
+        HttpServletRequest request = requestContext.getRequest();
+        logger.info("send {} request to {}",request.getMethod(),request.getRequestURL().toString());
+        Object accessToken = request.getHeader("Authorization");
+        if (accessToken==null){
+            logger.warn("Authorization token is empty");
+            requestContext.setSendZuulResponse(false);
+            requestContext.setResponseStatusCode(401);
+            requestContext.setResponseBody("Authorization token is empty");
+            return null;
+        }
+        logger.info("Authorization token is ok");
         return null;
     }
 }
