@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: microsrv-sleuth-zipkin-server
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://localhost:9411/ #  Zipkin 服务器的地址
+server:
+  port: 5000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.255.131.162:8000/eureka/,http://10.255.131.163:8000/eureka/,http://10.255.131.164:8000/eureka/
