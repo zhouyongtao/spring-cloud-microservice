@@ -12,8 +12,8 @@ spring:
           enabled: true
 #      routes:
 #        - id: default_path_to_http
-#          uri: https://windmt.com
-#          order: 10000
+#          uri: https://baidu.com
+#          order: 10
 #          predicates:
 #            - Path=/**
 #          filters:
