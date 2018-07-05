@@ -1,6 +1,6 @@
 spring:
   application:
-    name: microsrv-sleuth-zipkin-server
+    name: microsrv-sleuth-zipkin
   sleuth:
     web:
       client:
