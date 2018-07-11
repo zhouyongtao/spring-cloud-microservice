@@ -5,6 +5,8 @@ logging:
 spring:
   application:
     name: microsrv-api-gateway
+server:
+  port: 5555
   cloud:
     gateway:
       discovery:
@@ -18,8 +20,6 @@ spring:
 #            - Path=/**
 #          filters:
 #            - SetPath=/
-server:
-  port: 5555
 eureka:
   instance:
     prefer-ip-address: true
