@@ -1,6 +1,6 @@
 spring:
   application:
-    name: oauth2-server
+    name: microsrv-oauth2-server
   data:
     mongodb:
       port: 27017
