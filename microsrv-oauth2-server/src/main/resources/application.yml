@@ -1,3 +1,11 @@
+#logging:
+#  level:
+#    root: DEBUG
+logging:
+  level:
+      org.springframework: INFO
+      org.springframework.security: DEBUG
+
 spring:
   application:
     name: microsrv-oauth2-server
