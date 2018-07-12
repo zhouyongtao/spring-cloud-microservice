@@ -1,5 +1,5 @@
-package com.spring.cloud.microsrvzuul;
-import com.spring.cloud.microsrvzuul.Filter.OAuth2TokenFilter;
+package com.spring.cloud.microsrvzuulgateway;
+import com.spring.cloud.microsrvzuulgateway.Filter.OAuth2TokenFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;

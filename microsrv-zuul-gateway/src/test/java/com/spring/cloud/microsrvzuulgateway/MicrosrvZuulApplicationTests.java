@@ -1,4 +1,4 @@
-package com.spring.cloud.microsrvzuul;
+package com.spring.cloud.microsrvzuulgateway;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
