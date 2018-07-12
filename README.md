@@ -1,4 +1,4 @@
-# 配置JAVA运行环境
+# setting java environment
 
 ```
 sudo yum install java-1.8.0-openjdk
