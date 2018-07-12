@@ -11,3 +11,15 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://10.255.131.162:8000/eureka/,http://10.255.131.163:8000/eureka/,http://10.255.131.164:8000/eureka/
+
+zuul:
+  routes:
+    auth:
+      path: /auth/**
+      sensitiveHeaders:
+      serviceId:  idsrv-server
+    producer:
+      path: /provider/**
+      sensitiveHeaders:
+      serviceId:  provider-service
+  add-proxy-headers: true
