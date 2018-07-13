@@ -7,8 +7,8 @@ import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 
-//@SpringBootApplication
-@SpringCloudApplication
+//@SpringCloudApplication
+@SpringBootApplication
 @EnableOAuth2Sso
 @EnableZuulProxy
 public class MicrosrvZuulGatewayApplication {
