@@ -1,13 +1,11 @@
 package com.spring.cloud.microsrveurekaserviceconsumer;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.stereotype.Component;
 import java.util.Map;
 
-@SpringBootApplication
-@EnableCircuitBreaker
+@SpringCloudApplication
 public class MicrosrvEurekaServiceConsumerApplication {
 
     public static void main(String[] args) {

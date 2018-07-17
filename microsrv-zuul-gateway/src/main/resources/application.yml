@@ -16,15 +16,22 @@ zuul:
   host:
     connect-timeout-millis: 20000
     socket-timeout-millis: 20000
-  ignoredServices: '*'
+  #禁止暴露所有注册的服务
+  #ignoredServices: '*'
   prefix: /api # 设置一个公共的前缀
   routes:
     auth-service:
       path: /auth/**
       sensitiveHeaders:
       serviceId:  idsrv-server
-    producer:
-      path: /provider/**
+    order-service:
+      path: /order/**
       sensitiveHeaders:
-      serviceId:  provider-service
+      serviceId:  order-service
   add-proxy-headers: true
+
+#  zuul.routes.catalogservice.path=/catalog/**
+#  zuul.routes.catalogservice.serviceId=catalog-service
+#
+#  zuul.routes.orderservice.path=/orders/**
+#  zuul.routes.orderservice.serviceId=order-service

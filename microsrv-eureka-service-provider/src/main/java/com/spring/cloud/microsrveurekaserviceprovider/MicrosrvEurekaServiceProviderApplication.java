@@ -19,7 +19,7 @@ public class MicrosrvEurekaServiceProviderApplication {
 
     @RequestMapping("/")
     public String home() {
-        return "Hello World!";
+        return "microsrv-eureka-order-service-provider";
     }
 
     @RequestMapping("/registered")
