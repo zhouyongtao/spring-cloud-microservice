@@ -5,7 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
@@ -17,15 +18,15 @@ public class MicrosrvEurekaServiceProviderApplication {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String home() {
         return "microsrv-eureka-order-service-provider";
     }
 
-    @RequestMapping("/registered")
-    public String getRegistered() {
-        List<ServiceInstance> list = discoveryClient.getInstances("STORES");
-        System.out.println(discoveryClient.getServices());
+    @PreAuthorize("hasRole('all')")
+    @GetMapping("/registered")
+    public List<String> getRegistered() {
+        List<String> list = discoveryClient.getServices();//discoveryClient.getInstances("STORES");
         System.out.println("discoveryClient.getServices().size() = " + discoveryClient.getServices().size());
         for (String s : discoveryClient.getServices()) {
             System.out.println("services " + s);
@@ -37,13 +38,8 @@ public class MicrosrvEurekaServiceProviderApplication {
                 System.out.println("    services:" + s + ":getUri()=" + si.getUri());
                 System.out.println("    services:" + s + ":getMetadata()=" + si.getMetadata());
             }
-
         }
-        System.out.println(list.size());
-        if (list != null && list.size() > 0) {
-            System.out.println(list.get(0).getUri());
-        }
-        return null;
+        return list;
     }
 
         public static void main(String[] args) {
