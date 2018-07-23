@@ -38,6 +38,7 @@ import javax.sql.DataSource;
 //@Order(2)
 public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
 
+    //认证管理器
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -46,6 +47,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
 
 /*
+   // redis 连接工厂
     @Autowired
     private RedisConnectionFactory connectionFactory;
 
@@ -66,7 +68,10 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 //        return DataSourceBuilder.create().build();
 //    }
 
-
+    /**
+     * 令牌存储
+     * @return Jdbc 令牌存储对象
+     */
     @Bean("jdbcTokenStore")
     public JdbcTokenStore getJdbcTokenStore() {
         return new JdbcTokenStore(dataSource);

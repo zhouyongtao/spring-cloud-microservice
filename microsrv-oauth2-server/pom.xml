@@ -26,7 +26,7 @@
     </properties>
 
     <dependencies>
-        <!--Spring Security 与 Security 的 OAuth2 扩展-->
+        <!--Spring Security 与 Security 的 OAuth2 扩展 https://github.com/spring-cloud/spring-cloud-security -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>
