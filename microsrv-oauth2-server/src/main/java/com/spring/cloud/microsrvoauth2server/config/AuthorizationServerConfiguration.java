@@ -26,6 +26,9 @@ import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFacto
 import javax.sql.DataSource;
 
 /*
+spring.security.oauth2.client.authorization-uri=/oauth/authorize
+spring.security.oauth2.client.token-uri=/oauth/token
+
 [/oauth/authorize]
 [/oauth/token]
 [/oauth/check_token]
@@ -45,7 +48,6 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-
 /*
    // redis 连接工厂
     @Autowired
@@ -56,7 +58,6 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
         return new RedisTokenStore(connectionFactory);
     }
  */
-
 
     @Autowired
     @Qualifier("dataSource")
@@ -136,7 +137,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 //                .authenticationManager(authenticationManager);
 
            endpoints.authenticationManager(authenticationManager)
-                     //配置 JwtAccessToken 转换器
+                     //配置 JwtToken
                   //  .accessTokenConverter(jwtAccessTokenConverter())
                      //refresh_token 需要 UserDetailsService is required
                  //   .userDetailsService(userDetailsService)
