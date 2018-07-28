@@ -5,13 +5,6 @@ spring:
 server:
   port: 5555
 
-eureka:
-  instance:
-    preferIpAddress: true
-  client:
-    serviceUrl:
-      defaultZone: http://10.255.131.162:8000/eureka/,http://10.255.131.163:8000/eureka/,http://10.255.131.164:8000/eureka/
-
 zuul:
   host:
     connect-timeout-millis: 20000
@@ -35,3 +28,11 @@ zuul:
 #
 #  zuul.routes.orderservice.path=/orders/**
 #  zuul.routes.orderservice.serviceId=order-service
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://10.255.131.162:8000/eureka/,http://10.255.131.163:8000/eureka/,http://10.255.131.164:8000/eureka/
+
