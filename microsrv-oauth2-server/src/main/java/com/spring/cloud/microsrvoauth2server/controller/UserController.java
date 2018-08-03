@@ -22,7 +22,7 @@ public class UserController {
 
     @GetMapping("/me")
     public Map<String, Object> me(OAuth2Authentication user) {
-        Map<String, Object> userInfo = new HashMap<>();
+        Map<String, Object> userInfo = new HashMap<String, Object>();
         userInfo.put("user", user.getUserAuthentication().getPrincipal());
         logger.debug("me:" + user.getUserAuthentication().getPrincipal().toString());
         userInfo.put("authorities", AuthorityUtils.authorityListToSet(user.getUserAuthentication().getAuthorities()));
