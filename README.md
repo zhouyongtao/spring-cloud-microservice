@@ -15,6 +15,7 @@ java -version
 ```
 document
 http://cloud.spring.io/spring-cloud-static/Finchley.RELEASE/
+https://docs.spring.io/spring-boot/docs/2.0.4.RELEASE/reference/htmlsingle/
 https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Finchley-Release-Notes
 
 nohup java -jar microsrv-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer1 &
