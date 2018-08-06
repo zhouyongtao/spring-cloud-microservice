@@ -1,5 +1,4 @@
 package com.spring.cloud.microsrvoauth2server;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,5 +11,4 @@ public class MicrosrvOauth2ServerApplicationTests {
     @Test
     public void contextLoads() {
     }
-
 }
