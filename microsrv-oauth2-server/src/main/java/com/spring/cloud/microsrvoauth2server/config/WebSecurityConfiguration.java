@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 //@Order(1)
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -48,15 +49,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http
-//                .formLogin().loginPage("/login").permitAll()
-//                .and()
-//                .requestMatchers()
-//                .antMatchers("/", "/login", "/oauth/authorize", "/oauth/confirm_access")
-//                .and()
-//                .authorizeRequests()
-//                .anyRequest().authenticated();
-
 
 //        http.requestMatchers()
 //                .antMatchers("/login", "/oauth/authorize")
@@ -66,13 +58,23 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                .and()
 //                .formLogin().permitAll();
 
-   //     http.csrf().disable();
-        //不拦截 oauth 开放的资源
-        http.requestMatchers()
-                .anyRequest()
+
+        http.csrf().disable();
+        http
+                .requestMatchers().antMatchers("/oauth/**","/login/**","/logout/**")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/oauth/**").permitAll();
+                .antMatchers("/oauth/**").authenticated()
+                .and()
+                .formLogin().permitAll(); //新增login form支持用户登录及授权
+
+
+        //不拦截 oauth 开放的资源
+//        http.requestMatchers()
+//                .anyRequest()
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers("/oauth/**").permitAll();
     }
 
     @Override

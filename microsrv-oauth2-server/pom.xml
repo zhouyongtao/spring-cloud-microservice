@@ -5,7 +5,7 @@
 
     <groupId>com.spring.cloud</groupId>
     <artifactId>microsrv-oauth2-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${maven.build.timestamp}-0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>microsrv-oauth2-server</name>
@@ -23,6 +23,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
     </properties>
 
     <dependencies>
