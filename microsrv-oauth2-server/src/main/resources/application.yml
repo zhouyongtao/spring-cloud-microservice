@@ -6,21 +6,9 @@ logging:
       org.springframework: INFO #INFO
       org.springframework.security: DEBUG
 
-spring:
-  application:
-    name: microsrv-oauth2-server
-  datasource:
-    url: jdbc:mysql://xxxxxxxxx:3306/oauth2?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
-    username: root
-    password: "xxxxxxxxx"
-    driver: com.mysql.cj.jdbc.Driver
-    type: com.zaxxer.hikari.HikariDataSource
-    hikari:
-        minIdle: 10
-        idle-timeout: 10000
-        maximumPoolSize: 30
 server:
   port: 5000
+
 
 
 config:
@@ -29,27 +17,42 @@ config:
         # openssl rsa -in jwt.pem
         privateKey: |
             -----BEGIN RSA PRIVATE KEY-----
-            MIICXQIBAAKBgQDNQZKqTlO/+2b4ZdhqGJzGBDltb5PZmBz1ALN2YLvt341pH6i5
-            mO1V9cX5Ty1LM70fKfnIoYUP4KCE33dPnC7LkUwE/myh1zM6m8cbL5cYFPyP099t
-            hbVxzJkjHWqywvQih/qOOjliomKbM9pxG8Z1dB26hL9dSAZuA8xExjlPmQIDAQAB
-            AoGAImnYGU3ApPOVtBf/TOqLfne+2SZX96eVU06myDY3zA4rO3DfbR7CzCLE6qPn
-            yDAIiW0UQBs0oBDdWOnOqz5YaePZu/yrLyj6KM6Q2e9ywRDtDh3ywrSfGpjdSvvo
-            aeL1WesBWsgWv1vFKKvES7ILFLUxKwyCRC2Lgh7aI9GGZfECQQD84m98Yrehhin3
-            fZuRaBNIu348Ci7ZFZmrvyxAIxrV4jBjpACW0RM2BvF5oYM2gOJqIfBOVjmPwUro
-            bYEFcHRvAkEAz8jsfmxsZVwh3Y/Y47BzhKIC5FLaads541jNjVWfrPirljyCy1n4
-            sg3WQH2IEyap3WTP84+csCtsfNfyK7fQdwJBAJNRyobY74cupJYkW5OK4OkXKQQL
-            Hp2iosJV/Y5jpQeC3JO/gARcSmfIBbbI66q9zKjtmpPYUXI4tc3PtUEY8QsCQQCc
-            xySyC0sKe6bNzyC+Q8AVvkxiTKWiI5idEr8duhJd589H72Zc2wkMB+a2CEGo+Y5H
-            jy5cvuph/pG/7Qw7sljnAkAy/feClt1mUEiAcWrHRwcQ71AoA0+21yC9VkqPNrn3
-            w7OEg8gBqPjRlXBNb00QieNeGGSkXOoU6gFschR22Dzy
+            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
             -----END RSA PRIVATE KEY-----
         # openssl rsa -in jwt.pem -pubout
         publicKey: |
             -----BEGIN PUBLIC KEY-----
-            MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDNQZKqTlO/+2b4ZdhqGJzGBDlt
-            b5PZmBz1ALN2YLvt341pH6i5mO1V9cX5Ty1LM70fKfnIoYUP4KCE33dPnC7LkUwE
-            /myh1zM6m8cbL5cYFPyP099thbVxzJkjHWqywvQih/qOOjliomKbM9pxG8Z1dB26
-            hL9dSAZuA8xExjlPmQIDAQAB
+            MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm4irSNcR7CSSfXconxL4
+            g4M4j34wTWdTv93ocMn4VmdB7rCBU/BlxXtBUf/cgLIgQhQrAPszSZSmxiEXCOkG
+            Pr4aQBQuPgmNIR95Dhbzw/ZN0BnecAt3ZfkkDBHv8kH3kR/jYGTdwrxKeDgXGljN
+            sTRhbjuASxPG/Z6gU1yRPCsgc2r8NYnztWGcDWqaobqjG3/yzFmusoAboyV7asIp
+            o4yk378LmonDNwxnOOTb2Peg5PeelwfOwJPbftK1VOOt18zA0cchw6dHUzq9NlB8
+            clps/VdBap9BxU3/0YoFXRIc18nyzrWo2BcY2KQqX//AJC3OAfrfDmo+BGK8E0mp
+            8wIDAQAB
             -----END PUBLIC KEY-----
 
 eureka:
