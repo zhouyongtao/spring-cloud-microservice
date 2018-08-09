@@ -83,6 +83,49 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!--https://github.com/spotify/docker-maven-plugin -->
+            <!--<plugin>-->
+                <!--<groupId>com.spotify</groupId>-->
+                <!--<artifactId>docker-maven-plugin</artifactId>-->
+                <!--<version>1.1.1</version>-->
+                <!--<configuration>-->
+                    <!--&lt;!&ndash; 注意imageName一定要是符合正则[a-z0-9-_.]的，否则构建不会成功 &ndash;&gt;-->
+                    <!--&lt;!&ndash; 详见：https://github.com/spotify/docker-maven-plugin    Invalid repository name ... only [a-z0-9-_.] are allowed&ndash;&gt;-->
+                    <!--<imageName>microservice-discovery-eureka</imageName>-->
+                    <!--<baseImage>java</baseImage>-->
+                    <!--<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>-->
+                    <!--<resources>-->
+                        <!--<resource>-->
+                            <!--<targetPath>/</targetPath>-->
+                            <!--<directory>${project.build.directory}</directory>-->
+                            <!--<include>${project.build.finalName}.jar</include>-->
+                        <!--</resource>-->
+                    <!--</resources>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--https://github.com/spotify/dockerfile-maven-->
+            <!--<plugin>-->
+                <!--<groupId>com.spotify</groupId>-->
+                <!--<artifactId>dockerfile-maven-plugin</artifactId>-->
+                <!--<version>1.4.4</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>build-image</id>-->
+                        <!--<goals>-->
+                            <!--<goal>build</goal>-->
+                            <!--&lt;!&ndash;<goal>push</goal>&ndash;&gt;-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<configuration>-->
+                    <!--<imageName>${project.artifactId}</imageName>-->
+                    <!--&lt;!&ndash;<repository>spotify/foobar</repository>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<tag>${project.version}</tag>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<buildArgs>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</buildArgs>&ndash;&gt;-->
+                <!--</configuration>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 </project>
