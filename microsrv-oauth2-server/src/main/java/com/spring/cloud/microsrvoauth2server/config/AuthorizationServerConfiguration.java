@@ -110,7 +110,9 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         //初始化 Client 数据到 DB
-       // clients.jdbc(dataSource)
+        // clients.jdbc(dataSource)
+        // clients.withClientDetails(new JdbcClientDetailsService(dataSource));
+
          clients.inMemory()
                 .withClient("client_1")
                 .authorizedGrantTypes("client_credentials")
@@ -165,10 +167,10 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
 
     @Override
-    public void configure(AuthorizationServerSecurityConfigurer oauthServer) {
+    public void configure(AuthorizationServerSecurityConfigurer security) {
 
 //        //curl -i -X POST -H "Accept: application/json" -u "client_1:123456" http://localhost:5000/oauth/check_token?token=a1478d56-ebb8-4f21-b4b6-8a9602df24ec
-        oauthServer.tokenKeyAccess("permitAll()")         //url:/oauth/token_key,exposes public key for token verification if using JWT tokens
+           security.tokenKeyAccess("permitAll()")         //url:/oauth/token_key,exposes public key for token verification if using JWT tokens
                    .checkTokenAccess("isAuthenticated()") //url:/oauth/check_token allow check token
                    .allowFormAuthenticationForClients();
 

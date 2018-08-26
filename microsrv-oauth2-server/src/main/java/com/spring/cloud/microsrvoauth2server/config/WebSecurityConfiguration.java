@@ -29,6 +29,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
