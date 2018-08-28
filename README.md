@@ -38,18 +38,14 @@ java -version
 > *  doc
 ```
 http://cloud.spring.io/spring-cloud-static/Finchley.SR1/single/spring-cloud.html
-https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Finchley-Release-Notes
 https://docs.spring.io/spring-boot/docs/2.0.4.RELEASE/reference/htmlsingle/
-
-nohup java -jar microsrv-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer1 &
-
-http://cloud.spring.io/spring-cloud-static/Finchley.RELEASE/single/spring-cloud.html
-https://docs.spring.io/spring-boot/docs/2.0.3.RELEASE/reference/htmlsingle
+https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Finchley-Release-Notes
 https://github.com/spring-cloud-samples/hystrix-dashboard
 ```
 
 > *  eureka
 ```
+#nohup java -jar microsrv-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer1 &
 java -jar microsrv-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer1
 java -jar microsrv-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer2
 java -jar microsrv-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer3
