@@ -29,6 +29,18 @@ zuul:
 #  zuul.routes.orderservice.path=/orders/**
 #  zuul.routes.orderservice.serviceId=order-service
 
+
+security:
+  oauth2:
+    client:
+      access-token-uri: http://10.10.8.2:9030/uaa/oauth/token
+      user-authorization-uri: http://10.10.8.2:9030/uaa/oauth/authorize
+    resource:
+      user-info-uri:  http://10.10.8.2:9030/uaa/userinfo
+      prefer-token-info: false
+
+
+
 eureka:
   instance:
     preferIpAddress: true

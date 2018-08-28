@@ -1,4 +1,4 @@
-package com.spring.cloud.microsrvzuulgateway.Filter;
+package com.spring.cloud.microsrvzuulgateway.filter;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import org.slf4j.Logger;
