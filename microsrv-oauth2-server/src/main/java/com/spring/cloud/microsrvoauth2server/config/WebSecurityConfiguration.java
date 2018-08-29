@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 //@Order(1)
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -61,6 +61,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
         http.csrf().disable();
+
         http
                 .requestMatchers().antMatchers("/oauth/**","/login/**","/logout/**")
                 .and()
