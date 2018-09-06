@@ -61,6 +61,8 @@ eureka:
       defaultZone: http://microsrv-eureka-server-peer1:${server.port}/eureka/,http://microsrv-eureka-server-peer2:${server.port}/eureka/
 
 
+#  nohup java -jar microsrv-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer1 &
+
 #
 ## IP 的方式
 #spring:
