@@ -12,7 +12,13 @@ eureka:
     #ip-address: 192.168.1.1
 
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+#    registerWithEureka: false
+#    fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 2000
