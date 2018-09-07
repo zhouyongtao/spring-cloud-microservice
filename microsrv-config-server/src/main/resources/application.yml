@@ -60,7 +60,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: bus-refresh
+        include: bus-refresh,bus-env,refresh
 
 eureka:
   instance:
