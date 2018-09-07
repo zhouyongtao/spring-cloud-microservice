@@ -5,10 +5,18 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/spring-cloud-samples/microsrv-config-repo
+          uri: http://172.23.216.151/ytzhou/microsrv-config-repo.git
           username: ytzhou
           password: 123456789
-          timeout: 10
+  rabbitmq:
+    host: 172.23.216.48
+    port: 5672
+    username: admin
+    password: admin
+
+#          timeout: 10
+#          basedir: D:\repo\
+#          searchPaths: foo,bar*
 #          hostKeyAlgorithm: ssh-rsa
 #          privateKey: |
 #            -----BEGIN RSA PRIVATE KEY-----
