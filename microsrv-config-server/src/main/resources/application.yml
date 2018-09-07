@@ -38,3 +38,10 @@ spring:
 #            q0TY3we+ERB40U8Z2BvU61QuwaunJ2+uGadHo58VSVdggqAo0BSkH58innKKt96J
 #            69pcVH/4rmLbXdcmNYGm6iu+MlPQk4BUZknHSmVHIFdJ0EPupVaQ8RHT
 #            -----END RSA PRIVATE KEY-----
+eureka:
+  instance:
+    preferIpAddress: true
+  #    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://172.23.216.152:8761/eureka,http://172.23.216.153:8761/eureka,http://172.23.216.154:8761/eureka
