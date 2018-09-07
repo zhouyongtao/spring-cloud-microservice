@@ -5,10 +5,11 @@ spring:
     config:
       server:
         git:
-          uri: http://172.23.216.151/ytzhou/spring-cloud-microservice
+          uri: http://172.23.216.151/ytzhou/microsrv-config-repo.git
           search-paths: microsrv-config-repo
           username: ytzhou
           password: 123456789
+          basedir: D:\repo\
 
   rabbitmq:
     host: 172.23.216.48
@@ -54,4 +55,4 @@ eureka:
   #    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     serviceUrl:
-      defaultZone: http://172.23.216.152:8761/eureka,http://172.23.216.153:8761/eureka,http://172.23.216.154:8761/eureka
+      defaultZone: http://172.23.216.152:8761/eureka/,http://172.23.216.153:8761/eureka/,http://172.23.216.154:8761/eureka/
