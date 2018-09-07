@@ -1,21 +1,11 @@
+#bootstrap.properties 加载优先于 application.properties 配置
+
 spring:
-  application:
-    name: microsrv-config-client
-  rabbitmq:
-    host: 172.23.216.48
-    port: 5672
-    username: admin
-    password: admin
   cloud:
     config:
-      uri: http://localhost:8888/
-      profile: dev                      # ָ��profile
-      label: master                     # ָ��gitlab�ֿ�ķ�֧
-
-eureka:
-  instance:
-    preferIpAddress: true
-  #    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
-  client:
-    serviceUrl:
-      defaultZone: http://172.23.216.152:8761/eureka/,http://172.23.216.153:8761/eureka/,http://172.23.216.154:8761/eureka/
+#      uri: http://localhost:8888        # 配置中心的具体地址
+      name: microsrv-config-client      # 指定 {application} 部分
+      profile: dev                      # 指定 profile
+      label: master                     # 指定 gitlab 仓库的分支
+      discovery:
+        service-id: microsrv-config-server

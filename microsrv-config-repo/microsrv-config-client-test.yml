@@ -1,0 +1,78 @@
+﻿logging:
+  level:
+    org.springframework: INFO #INFO
+    org.springframework.security: DEBUG
+
+server:
+  port: 5000
+
+spring:
+  application:
+    name: microsrv-oauth2-server-test
+  rabbitmq:
+    host: 172.23.216.48
+    port: 5672
+    username: admin
+    password: admin
+  datasource:
+    url: jdbc:mysql://172.23.216.48:3306/oauth2?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    username: root
+    password: "!QAZ2wsx3edc"
+    driver: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minIdle: 10
+      idle-timeout: 10000
+      maximumPoolSize: 5
+
+config:
+  oauth2:
+    # openssl genrsa -out jwt.pem 2048
+    # openssl rsa -in jwt.pem
+    privateKey: |
+      -----BEGIN RSA PRIVATE KEY-----
+      MIIEowIBAAKCAQEAm4irSNcR7CSSfXconxL4g4M4j34wTWdTv93ocMn4VmdB7rCB
+      U/BlxXtBUf/cgLIgQhQrAPszSZSmxiEXCOkGPr4aQBQuPgmNIR95Dhbzw/ZN0Bne
+      cAt3ZfkkDBHv8kH3kR/jYGTdwrxKeDgXGljNsTRhbjuASxPG/Z6gU1yRPCsgc2r8
+      NYnztWGcDWqaobqjG3/yzFmusoAboyV7asIpo4yk378LmonDNwxnOOTb2Peg5Pee
+      lwfOwJPbftK1VOOt18zA0cchw6dHUzq9NlB8clps/VdBap9BxU3/0YoFXRIc18ny
+      zrWo2BcY2KQqX//AJC3OAfrfDmo+BGK8E0mp8wIDAQABAoIBAENp64P45GXMPEpx
+      eYPpfxnRqJRZh6olHSHOl087243n16YTjxrI2fPMxrU6B2Mo0d6SS0lzl/lOmzLJ
+      aOiNyA0t7MbVeG2fSjKPJ7M5s5K+kV+fttAtyCTE5iDtLWl9ukaG4dEIJy6e2lBd
+      T3Y2A4HJSGm1FJh2DAwl0ywOtUy0X6ki9DgXVAaCGDuoU25Rhun64dh802DZbEEJ
+      LdorIyeJ0ovCZyNvhlZRYkAOPy3k88smYl2jE/AbZ7pCKz/XggDcjNsERm2llaa3
+      pNTAZQUlHu0BQrCn6J9BxtMPyduiyrE+JYqTwnYhWQ5QRe/2J8O3t0eIK9TfUQpJ
+      DrZf00ECgYEAy/sLX8UCmERwMuaQSwoM0BHTZIc0iAsgiXbVOLua9I3Tu/mXOVdH
+      TikjdoWLqM62bA9dN/oqzHDwvqCy6zwamjFVSmJUejf5v+52Qj64leOmDX/RC4ne
+      L08N1nP/Y4X24Y/5zq18qvVlhOMDdydzayJFrGhkQKhJg58pRUIdenECgYEAwzLC
+      Awr3LeUlHa+d2O6siJVmljTc8lT+qX4TvqTDH8rAC/EyKMNaTjaX6mWosZZ7qYXv
+      EMxvQzTEzUHRXrCGlhbX8xiBlWnvpghF2GJEvP9WaU/+OCr0gItRSLPDuZ6ctzKb
+      3QkBEiC8ODyPRKzlA67D23S3KJB067IUV81h9KMCgYBXUqmT3is2NFYz9DBhb3P8
+      vyTYLGl4tArBznWJTAcSGoVCO59ZlNuZwlLEMnePVK8To6AsjpQz4UWu1ezCd4CL
+      8gKpTV8M01m/qL5HrcInqMU1kjpTzjmn1xf9brsuR/NgrNoseGieZ1+GfAjHwcPP
+      YWSiYi5I38JY7pIkbCFigQKBgAnVtty8YrPXRcV3IbbaX6sKC/8pbrBvA926Unha
+      iNJDPuXbIzHWleg26/SNZrB76oMiEmeARWLXd8r3s/rXXhCV2g+PfofurHprFEnQ
+      ubHkE5B+zUo7L9KCMng9RnFFwpOgYyYB3CHzsEgNFRLauzcySP/3o3rRvHJbqJa7
+      7GGNAoGBAKSBn4zq0iNWI2BUBb90icMsHEneiydGtFcEl3/Sz8vmjFZn0sjRbGoY
+      gmP9LlQ+o7xRiJ/LTesi5BA6zCGrcdp0aeyJzCRbFc3WqjGeyLbfx1sJVVB6PnvS
+      iKvvCOJq6kl3/opO+ybqJ8dzkEyoj8K4+fcX1+U6eW2w+vSpOosG
+      -----END RSA PRIVATE KEY-----
+    # openssl rsa -in jwt.pem -pubout
+    publicKey: |
+      -----BEGIN PUBLIC KEY-----
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm4irSNcR7CSSfXconxL4
+      g4M4j34wTWdTv93ocMn4VmdB7rCBU/BlxXtBUf/cgLIgQhQrAPszSZSmxiEXCOkG
+      Pr4aQBQuPgmNIR95Dhbzw/ZN0BnecAt3ZfkkDBHv8kH3kR/jYGTdwrxKeDgXGljN
+      sTRhbjuASxPG/Z6gU1yRPCsgc2r8NYnztWGcDWqaobqjG3/yzFmusoAboyV7asIp
+      o4yk378LmonDNwxnOOTb2Peg5PeelwfOwJPbftK1VOOt18zA0cchw6dHUzq9NlB8
+      clps/VdBap9BxU3/0YoFXRIc18nyzrWo2BcY2KQqX//AJC3OAfrfDmo+BGK8E0mp
+      8wIDAQAB
+      -----END PUBLIC KEY-----
+
+eureka:
+  instance:
+    preferIpAddress: true
+  #    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://172.23.216.152:8761/eureka/,http://172.23.216.153:8761/eureka/,http://172.23.216.154:8761/eureka/

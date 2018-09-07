@@ -1,3 +1,6 @@
+server:
+  port: 8888
+
 spring:
   application:
     name: microsrv-config-server
@@ -6,7 +9,7 @@ spring:
       server:
         git:
           uri: http://172.23.216.151/ytzhou/microsrv-config-repo.git
-          search-paths: microsrv-config-repo
+          search-paths: /{application}
           username: ytzhou
           password: 123456789
           basedir: D:\repo\
