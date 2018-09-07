@@ -1,14 +1,4 @@
-﻿logging:
-  level:
-    org.springframework: INFO #INFO
-    org.springframework.security: DEBUG
-
-server:
-  port: 5000
-
-spring:
-  application:
-    name: microsrv-oauth2-server-dev
+﻿spring:
   rabbitmq:
     host: 172.23.216.48
     port: 5672
@@ -26,6 +16,7 @@ spring:
       maximumPoolSize: 5
 
 config:
+  evn: dev
   oauth2:
     # openssl genrsa -out jwt.pem 2048
     # openssl rsa -in jwt.pem
@@ -68,11 +59,3 @@ config:
       clps/VdBap9BxU3/0YoFXRIc18nyzrWo2BcY2KQqX//AJC3OAfrfDmo+BGK8E0mp
       8wIDAQAB
       -----END PUBLIC KEY-----
-
-eureka:
-  instance:
-    preferIpAddress: true
-  #    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
-  client:
-    serviceUrl:
-      defaultZone: http://172.23.216.152:8761/eureka/,http://172.23.216.153:8761/eureka/,http://172.23.216.154:8761/eureka/
