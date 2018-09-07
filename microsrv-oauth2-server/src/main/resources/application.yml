@@ -9,7 +9,19 @@ logging:
 server:
   port: 5000
 
-
+spring:
+    application:
+        name: microsrv-oauth2-server
+    datasource:
+        url: jdbc:mysql://120.26.40.126:3306/oauth2?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+        username: root
+        password: "!QAZ2wsx3edc"
+        driver: com.mysql.cj.jdbc.Driver
+        type: com.zaxxer.hikari.HikariDataSource
+        hikari:
+            minIdle: 10
+            idle-timeout: 10000
+            maximumPoolSize: 5
 
 config:
     oauth2:
