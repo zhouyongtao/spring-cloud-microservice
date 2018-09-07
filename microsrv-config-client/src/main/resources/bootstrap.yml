@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: microsrv-config-client
+  rabbitmq:
+    host: 172.23.216.48
+    port: 5672
+    username: admin
+    password: admin
+  cloud:
+    config:
+      uri: http://localhost:8888/
+      profile: dev                      # 指定profile
+      label: master                     # 指定gitlab仓库的分支
+
+eureka:
+  instance:
+    preferIpAddress: true
+  #    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://172.23.216.152:8761/eureka,http://172.23.216.153:8761/eureka,http://172.23.216.154:8761/eureka

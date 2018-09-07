@@ -5,9 +5,11 @@ spring:
     config:
       server:
         git:
-          uri: http://172.23.216.151/ytzhou/microsrv-config-repo.git
+          uri: http://172.23.216.151/ytzhou/spring-cloud-microservice
+          search-paths: microsrv-config-repo
           username: ytzhou
           password: 123456789
+
   rabbitmq:
     host: 172.23.216.48
     port: 5672

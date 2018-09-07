@@ -1,8 +1,10 @@
 package com.spring.cloud.microsrvconfigclient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class MicrosrvConfigClientApplication {
 
     public static void main(String[] args) {
