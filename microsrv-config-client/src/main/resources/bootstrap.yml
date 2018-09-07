@@ -3,9 +3,10 @@
 spring:
   cloud:
     config:
-#      uri: http://localhost:8888        # 配置中心的具体地址
+      uri: http://localhost:8888        # 配置中心的具体地址
       name: microsrv-config-client      # 指定 {application} 部分
       profile: dev                      # 指定 profile
       label: master                     # 指定 gitlab 仓库的分支
-      discovery:
-        service-id: microsrv-config-server
+#      discovery:
+#        enabled: true
+#        service-id: microsrv-config-server

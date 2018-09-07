@@ -13,6 +13,10 @@ spring:
           username: ytzhou
           password: 123456789
           basedir: D:\repo\
+    bus:
+      trace:
+        enabled: true
+      enabled: true
 
   rabbitmq:
     host: 172.23.216.48
@@ -52,6 +56,13 @@ spring:
 #            q0TY3we+ERB40U8Z2BvU61QuwaunJ2+uGadHo58VSVdggqAo0BSkH58innKKt96J
 #            69pcVH/4rmLbXdcmNYGm6iu+MlPQk4BUZknHSmVHIFdJ0EPupVaQ8RHT
 #            -----END RSA PRIVATE KEY-----
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+
 eureka:
   instance:
     preferIpAddress: true
