@@ -3,14 +3,15 @@ logging:
     org.springframework: INFO #INFO
     org.springframework.security: INFO
 
-
 spring:
   application:
     name: microsrv-config-client
 
 eureka:
   instance:
-    preferIpAddress: true
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
   #    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     serviceUrl:

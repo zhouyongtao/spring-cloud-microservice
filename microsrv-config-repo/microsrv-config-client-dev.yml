@@ -16,6 +16,8 @@
       maximumPoolSize: 5
 
 config:
+  username: irving
+  age: 18
   evn: dev
   oauth2:
     # openssl genrsa -out jwt.pem 2048

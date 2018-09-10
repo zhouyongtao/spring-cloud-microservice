@@ -1,12 +1,30 @@
 #bootstrap.properties 加载优先于 application.properties 配置
+#http://localhost:8888/actuator/bus-refresh/
+logging:
+  level:
+    org.springframework: INFO #INFO
+    org.springframework.security: INFO
 
 spring:
+  application:
+    name: microsrv-config-client
   cloud:
     config:
-      uri: http://localhost:8888        # 配置中心的具体地址
+#      uri: http://localhost:8888        # 配置中心的具体地址
       name: microsrv-config-client      # 指定 {application} 部分
       profile: dev                      # 指定 profile
       label: master                     # 指定 gitlab 仓库的分支
-#      discovery:
-#        enabled: true
-#        service-id: microsrv-config-server
+      discovery:
+        enabled: true
+        service-id: microsrv-config-server
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
+  #    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://172.23.216.152:8761/eureka/,http://172.23.216.153:8761/eureka/,http://172.23.216.154:8761/eureka/
