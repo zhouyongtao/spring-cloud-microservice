@@ -5,7 +5,7 @@
     username: admin
     password: admin
   datasource:
-    url: jdbc:mysql://172.23.216.48:3306/oauth2?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    url: jdbc:mysql://172.23.216.48:3306/product?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
     username: root
     password: "!QAZ2wsx3edc"
     driver: com.mysql.cj.jdbc.Driver

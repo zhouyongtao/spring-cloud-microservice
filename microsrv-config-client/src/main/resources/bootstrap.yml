@@ -1,4 +1,5 @@
 #bootstrap.properties 加载优先于 application.properties 配置
+#刷新配置
 #http://localhost:8888/actuator/bus-refresh/
 logging:
   level:
