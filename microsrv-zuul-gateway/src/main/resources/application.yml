@@ -15,11 +15,11 @@ zuul:
   routes:
     auth-service:
       path: /auth/**
-      sensitiveHeaders:
+      sensitiveHeaders: "*"
       serviceId:  idsrv-server
     order-service:
       path: /order/**
-      sensitiveHeaders:
+      sensitiveHeaders: "*"
       serviceId:  order-service
   add-proxy-headers: true
 
@@ -33,10 +33,11 @@ zuul:
 security:
   oauth2:
     client:
-      access-token-uri: http://10.10.8.2:9030/uaa/oauth/token
-      user-authorization-uri: http://10.10.8.2:9030/uaa/oauth/authorize
+      access-token-uri: http://localhost:9030/oauth/token
+      user-authorization-uri: http://localhost:9030/oauth/authorize
+      client-id: webapp
     resource:
-      user-info-uri:  http://10.10.8.2:9030/uaa/userinfo
+      user-info-uri:  http://localhost:9030/userinfo
       prefer-token-info: false
 
 
