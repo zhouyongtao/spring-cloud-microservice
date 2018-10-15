@@ -1,0 +1,45 @@
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.security: INFO #DEBUG
+
+server:
+  port: 5000
+
+spring:
+  application:
+    name: microsrv-flowable
+  aop:
+    auto: true
+    proxy-target-class: true
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      enabled: true
+      resolve-lazily: false
+      max-file-size: 20MB
+      max-request-size: 20MB
+  datasource:
+    initialization-mode: never
+    url: jdbc:mysql://172.23.216.48:3306/flowable?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&autoReconnect=true&useSSL=false
+    username: root
+    password: "!QAZ2wsx3edc"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      idle-timeout: 30000
+      connection-timeout: 30000
+      minimum-idle: 2
+      maximum-pool-size: 5
+      connection-test-query: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+#flowable:
+#  #关闭定时任务JOB
+#  async-executor-activate: false
