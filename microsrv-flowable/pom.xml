@@ -42,6 +42,11 @@
             <artifactId>flowable-spring-boot-starter</artifactId>
             <version>6.4.0</version>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.flowable</groupId>-->
+            <!--<artifactId>flowable-spring-boot-starter-rest</artifactId>-->
+            <!--<version>6.4.0</version>-->
+        <!--</dependency>-->
 
         <!-- database -->
         <dependency>
