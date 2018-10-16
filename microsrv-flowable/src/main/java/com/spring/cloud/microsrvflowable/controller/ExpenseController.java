@@ -2,6 +2,7 @@ package com.spring.cloud.microsrvflowable.controller;
 
 import org.flowable.bpmn.model.BpmnModel;
 import org.flowable.engine.*;
+import org.flowable.engine.history.HistoricActivityInstance;
 import org.flowable.engine.runtime.Execution;
 import org.flowable.engine.runtime.ProcessInstance;
 import org.flowable.image.ProcessDiagramGenerator;
@@ -48,11 +49,13 @@ public class ExpenseController {
     @RequestMapping(value = "add")
     @ResponseBody
     public String addExpense(String userId, Integer money, String descption) {
+
         //启动流程
         HashMap<String, Object> map = new HashMap<>();
         map.put("taskUser", userId);
         map.put("money", money);
 //        TaskService taskService = processEngine.getTaskService();
+//        RuntimeService runtimeService = processEngine.getRuntimeService();
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("Expense", map);
         return "提交成功.流程Id为：" + processInstance.getId();
     }
@@ -78,14 +81,16 @@ public class ExpenseController {
     @RequestMapping(value = "apply")
     @ResponseBody
     public String apply(String taskId) {
+        //TaskService taskService = processEngine.getTaskService();
         Task task = taskService.createTaskQuery().taskId(taskId).singleResult();
         if (task == null) {
             throw new RuntimeException("流程不存在");
         }
         //通过审核
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("outcome", "通过");
-        taskService.complete(taskId, map);
+        HashMap<String, Object> hashMap = new HashMap<>(16);
+        //hashMap.put("approved", "y");
+        hashMap.put("outcome", "通过");
+        taskService.complete(taskId, hashMap);
         return "processed ok!";
     }
 
@@ -151,5 +156,21 @@ public class ExpenseController {
                 out.close();
             }
         }
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "history")
+    public Object[] history() {
+        HistoryService historyService = processEngine.getHistoryService();
+        List<HistoricActivityInstance> activities =
+                historyService.createHistoricActivityInstanceQuery()
+                              .finished()
+                              .orderByHistoricActivityInstanceEndTime().asc()
+                              .list();
+        for (HistoricActivityInstance activity : activities) {
+            System.out.println(activity.getActivityId() + " took "
+                    + activity.getDurationInMillis() + " milliseconds");
+        }
+        return activities.toArray();
     }
 }
