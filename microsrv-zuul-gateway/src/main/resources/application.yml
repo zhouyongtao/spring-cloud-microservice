@@ -29,23 +29,20 @@ zuul:
 #  zuul.routes.orderservice.path=/orders/**
 #  zuul.routes.orderservice.serviceId=order-service
 
-
 security:
   oauth2:
     client:
       access-token-uri: http://localhost:9030/oauth/token
       user-authorization-uri: http://localhost:9030/oauth/authorize
       client-id: webapp
+      client-secret: webapp_secret_123456
     resource:
       user-info-uri:  http://localhost:9030/userinfo
       prefer-token-info: false
 
-
-
 eureka:
   instance:
-    preferIpAddress: true
+    prefer-ip-address: true
   client:
     serviceUrl:
       defaultZone: http://10.255.131.162:8000/eureka/,http://10.255.131.163:8000/eureka/,http://10.255.131.164:8000/eureka/
-

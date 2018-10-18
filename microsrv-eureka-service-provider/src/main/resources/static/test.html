@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script type="application/javascript">
+        $(function () {
+
+            $('#test').click(function () {
+                $.ajax({
+                    url: 'http://localhost:8888/oauth/token',
+                    xhrFields:{ withCredentials: true},
+                    type: 'post',
+                    headers: {
+                        'Authorization':'Basic Y2xpZW50Xzk5c3VuX3dlYjpzZWNyZXRfOTlzdW5fMTIzNDU2',
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    data: {grant_type:'password',username:'irving',password:'123456',soap:'all'},
+                    success:function(ret){
+                        console.log(ret)
+                        $.ajax({
+                            url: 'http://47.100.188.242:8888/api/v1/users/irving',
+                            xhrFields:{ withCredentials: true},
+                            type: 'get',
+                            headers: {
+                                'Authorization':'Bearer '+ret.access_token,
+                            },
+                            success:function(ret){
+                                console.log(ret)
+                            }
+                        });
+                    }
+                });
+            });
+            $('#test1').click(function () {
+                $.ajax({
+                    url: ' http://localhost:8888/api/v1/users/irving',
+                    xhrFields:{ withCredentials: true},
+                    type: 'get',
+                    headers: {
+                        'Authorization':'Bearer ',
+                    },
+                    success:function(ret){
+                        console.log(ret)
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<input id="test" type="button" value="test">
+<input id="test1" type="button" value="test1">
+
+
+</body>
+</html>

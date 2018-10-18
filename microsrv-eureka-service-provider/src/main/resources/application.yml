@@ -1,3 +1,7 @@
+logging:
+  level:
+    org.springframework: DEBUG
+
 spring:
   application:
     name: order-service
@@ -7,7 +11,7 @@ server:
 
 eureka:
   instance:
-    preferIpAddress: true
+    prefer-ip-address: true
   client:
     serviceUrl:
       defaultZone: http://10.255.131.162:8000/eureka/,http://10.255.131.163:8000/eureka/,http://10.255.131.164:8000/eureka/
@@ -15,10 +19,21 @@ eureka:
 security:
   oauth2:
     resource:
-      id: order-service
-      #指定用户信息地址
-      user-info-uri: https://api.apiboot.cn/auth/user
-      prefer-token-info: false
+      #      prefer-token-info: true
+      #      user-info-uri: http://localhost:8080/api/v1/users/principal
+      #      token-info-uri: http://localhost:8080/oauth/check_token
+      jwt:
+        # key-uri: http://localhost:8080/oauth/token_key
+        key-value: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm4irSNcR7CSSfXconxL4
+          g4M4j34wTWdTv93ocMn4VmdB7rCBU/BlxXtBUf/cgLIgQhQrAPszSZSmxiEXCOkG
+          Pr4aQBQuPgmNIR95Dhbzw/ZN0BnecAt3ZfkkDBHv8kH3kR/jYGTdwrxKeDgXGljN
+          sTRhbjuASxPG/Z6gU1yRPCsgc2r8NYnztWGcDWqaobqjG3/yzFmusoAboyV7asIp
+          o4yk378LmonDNwxnOOTb2Peg5PeelwfOwJPbftK1VOOt18zA0cchw6dHUzq9NlB8
+          clps/VdBap9BxU3/0YoFXRIc18nyzrWo2BcY2KQqX//AJC3OAfrfDmo+BGK8E0mp
+          8wIDAQAB
+          -----END PUBLIC KEY-----
 
 
 #spring.application.name=order-service
