@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.spring.cloud</groupId>
-    <artifactId>spring-cloud-microservice-parent</artifactId>
+    <artifactId>spring-cloud-microservice</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>spring-cloud-microservice-parent</name>
+    <name>spring-cloud-microservice</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -39,6 +39,7 @@
         <module>microsrv-sleuth-zipkin</module>
         <module>microsrv-spring-boot-admin-server</module>
         <module>microsrv-zuul-gateway</module>
+        <module>testweb</module>
     </modules>
 
     <dependencyManagement>
