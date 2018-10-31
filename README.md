@@ -42,7 +42,6 @@ http://cloud.spring.io/spring-cloud-static/Finchley.SR2/single/spring-cloud.html
 https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-starters
 https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Finchley-Release-Notes
 https://github.com/spring-cloud-samples/hystrix-dashboard
-https://github.com/LogNet/grpc-spring-boot-starter
 ```
 
 > *  eureka
