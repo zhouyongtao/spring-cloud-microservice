@@ -13,7 +13,7 @@
 
     <parent>
         <groupId>com.spring.cloud</groupId>
-        <artifactId>spring-cloud-microservice</artifactId>
+        <artifactId>spring-cloud-microservice-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
