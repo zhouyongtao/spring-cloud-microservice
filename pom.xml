@@ -28,7 +28,17 @@
 
     <modules>
         <module>microsrv-api-gateway</module>
+        <module>microsrv-config-client</module>
+        <module>microsrv-config-server</module>
         <module>microsrv-eureka-server</module>
+        <module>microsrv-eureka-service-consumer</module>
+        <module>microsrv-eureka-service-provider</module>
+        <module>microsrv-flowable</module>
+        <module>microsrv-hystrix-dashboard</module>
+        <module>microsrv-oauth2-server</module>
+        <module>microsrv-sleuth-zipkin</module>
+        <module>microsrv-spring-boot-admin-server</module>
+        <module>microsrv-zuul-gateway</module>
     </modules>
 
     <dependencyManagement>
