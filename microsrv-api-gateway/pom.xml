@@ -11,6 +11,7 @@
     <name>microsrv-api-gateway</name>
     <description>Demo project for Spring Boot</description>
 
+    <!--继承父节点配置-->
     <parent>
         <groupId>com.spring.cloud</groupId>
         <artifactId>spring-cloud-microservice-parent</artifactId>
