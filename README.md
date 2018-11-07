@@ -10,6 +10,7 @@
 # monitor
 * https://github.com/prometheus
 * https://github.com/kubernetes-incubator/metrics-server
+* https://github.com/grafana/grafana
 
 # maven repository
 * https://www.jfrog.com/confluence/
