@@ -33,8 +33,10 @@
 * https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Finchley-Release-Notes
 * https://github.com/spring-cloud-samples/hystrix-dashboard
 
-> * env
+# env
 ```
+sudo apt-get update
+sudo apt-get upgrade
 yum install -y redhat-lsb
 uname -a
 cat /proc/version
@@ -53,16 +55,7 @@ sudo yum install -y gitlab-ce
 sudo yum install -y gitlab-ee
 netstat -lntup
 
-```
-
-> *  jdk
-
-``` 
-
 sudo yum install java-1.8.0-openjdk
-
-sudo apt-get update
-sudo apt-get upgrade
 sudo apt-get install software-properties-common htop
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
@@ -70,7 +63,7 @@ sudo apt-get install oracle-java8-installer
 java -version
 ```
 
-> *  eureka
+# eureka
 ```
 #nohup java -jar microsrv-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer1 &
 java -jar microsrv-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer1
