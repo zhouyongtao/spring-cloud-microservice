@@ -4,12 +4,19 @@
 # docker&kubernetes
 * https://www.cncf.io/projects/
 * https://github.com/kubernetes/kubernetes
+* https://github.com/kubernetes/examples
 * https://kubernetes.io/docs/concepts/
 * https://github.com/ramitsurana/awesome-kubernetes
 * https://docs.docker.com/
 
+# volume
+* https://github.com/rook/rook
+* https://github.com/ceph
+* https://github.com/gluster
+
 # monitor
 * https://github.com/prometheus
+* https://github.com/coreos/prometheus-operator
 * https://github.com/kubernetes-incubator/metrics-server
 * https://github.com/grafana/grafana
 
