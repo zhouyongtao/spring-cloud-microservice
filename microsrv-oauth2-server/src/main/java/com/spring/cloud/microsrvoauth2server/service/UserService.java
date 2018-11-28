@@ -21,5 +21,5 @@ public interface UserService {
      * @param username
      * @return
      */
-    Users findOneByusername(String username);
+    Users findByUsername(String username);
 }

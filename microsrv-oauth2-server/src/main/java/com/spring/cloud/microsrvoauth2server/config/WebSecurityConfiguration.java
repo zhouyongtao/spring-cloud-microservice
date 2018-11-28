@@ -1,5 +1,6 @@
 package com.spring.cloud.microsrvoauth2server.config;
 import com.spring.cloud.microsrvoauth2server.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,35 +12,56 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@Configuration
 @EnableWebSecurity
-//@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 //@Order(1)
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("irving")
-                .password(passwordEncoder().encode("123456"))
-                .roles("read");
-        // auth.userDetailsService(userDetailsService())
-        //   .passwordEncoder(passwordEncoder());
-    }
-
+    @Autowired
+    private UserDetailsService userDetailsService;
 
 //    @Bean
+//    public BCryptPasswordEncoder passwordEncoder(){
+//        return new BCryptPasswordEncoder();
+//    }
+
+    //    @Bean
 //    public static NoOpPasswordEncoder passwordEncoder() {
 //        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
 //    }
+
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
+
+
+    /**
+     * 配置授权的用户信息
+     *
+     * @param authenticationManagerBuilder
+     * @throws Exception
+     */
+    @Override
+    protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+
+//        authenticationManagerBuilder.inMemoryAuthentication()
+//                .withUser("irving")
+//                .password(passwordEncoder().encode("123456"))
+//                .roles("read");
+
+        // auth.userDetailsService(userDetailsService())
+        //   .passwordEncoder(passwordEncoder());
+
+        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
+
 
 
 

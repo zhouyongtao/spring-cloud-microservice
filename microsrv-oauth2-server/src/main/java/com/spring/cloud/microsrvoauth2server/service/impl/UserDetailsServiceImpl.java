@@ -26,9 +26,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private UserService userService;
 
+
     @Override
     public UserDetails loadUserByUsername(String userName) {
-        Users user = userService.findOneByusername(userName);
+        Users user = userService.findByUsername(userName);
         if (null == user) {
             throw new UsernameNotFoundException(userName);
         }

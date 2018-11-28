@@ -12,7 +12,7 @@ import java.util.Objects;
  * @ version:    ：v1.0
  */
 @Entity
-@Table(name = "users", schema = "99sun", catalog = "")
+@Table(name = "users", schema = "oauth2", catalog = "")
 public class Users {
     private Integer id;
     private String username;
