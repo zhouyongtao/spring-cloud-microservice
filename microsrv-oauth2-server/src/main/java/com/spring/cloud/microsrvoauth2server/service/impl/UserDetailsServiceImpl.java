@@ -16,9 +16,9 @@ import java.util.List;
 /**
  * 重写用户服务
  *
- * @author：  ytzhou
- * @date：    2018/9/19 14:17
- * @version:  v1.0
+ * @author： ytzhou
+ * @date： 2018/9/19 14:17
+ * @version: v1.0
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -34,11 +34,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException(userName);
         }
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority("021098"));
+        authorities.add(new SimpleGrantedAuthority("021040"));
 //        for (SysRole role : sysUser.getRoleList()) {
 //            for (SysPermission permission : role.getPermissionList()) {
 //                authorities.add(new SimpleGrantedAuthority(permission.getCode()));
 //            }
 //        }
-        return new User(user.getUsername(),user.getPassword(), authorities);
+        return new User(user.getUsername(), user.getPassword(), authorities);
     }
 }
