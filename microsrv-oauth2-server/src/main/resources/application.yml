@@ -4,7 +4,7 @@
 logging:
   level:
       org.springframework: INFO #INFO
-      org.springframework.security: DEBUG
+      org.springframework.security: INFO
 
 server:
   port: 5000
@@ -22,6 +22,11 @@ spring:
             idle-timeout: 10000
             maximumPoolSize: 5
             minimum-idle: 10
+    jpa:
+        hibernate:
+            ddl-auto: update
+            naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        show-sql: true
 
 config:
     oauth2:
