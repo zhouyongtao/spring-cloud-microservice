@@ -1,9 +1,7 @@
 package com.spring.cloud.microsrvoauth2server.config;
 
-import java.security.KeyPair;
 import java.util.Arrays;
 
-import com.spring.cloud.microsrvoauth2server.service.UserService;
 import com.spring.cloud.microsrvoauth2server.service.impl.UserDetailsServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
