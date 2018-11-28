@@ -19,9 +19,9 @@ spring:
         driver: com.mysql.cj.jdbc.Driver
         type: com.zaxxer.hikari.HikariDataSource
         hikari:
-            minIdle: 10
             idle-timeout: 10000
             maximumPoolSize: 5
+            minimum-idle: 10
 
 config:
     oauth2:
