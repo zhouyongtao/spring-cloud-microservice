@@ -1,10 +1,18 @@
 logging:
   level:
-    org.springframework.cloud.gateway: debug
+    org.springframework.cloud.gateway: INFO
 
 spring:
   application:
     name: microsrv-api-gateway
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "docs.spring.io"
+            allowedMethods:
+            - GET
 server:
   port: 5555
   cloud:
