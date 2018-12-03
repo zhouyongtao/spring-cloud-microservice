@@ -17,12 +17,12 @@ public class TokenEnhancerConfiguration implements TokenEnhancer {
     @Override
     public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
         final Map<String, Object> additionalInfo = new HashMap<>();
-        additionalInfo.put("ext_client_name", authentication.getName());
+        additionalInfo.put("username", authentication.getName());
 //        User user = (User) authentication.getUserAuthentication().getPrincipal();
 //        additionalInfo.put("username", user.getUsername());
 //        additionalInfo.put("authorities", user.getAuthorities());
         ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInfo);
-        accessToken.getAdditionalInformation().put("hotelcd","021040");
+        // accessToken.getAdditionalInformation().put("hotelcd","021040");
         return accessToken;
     }
 }
