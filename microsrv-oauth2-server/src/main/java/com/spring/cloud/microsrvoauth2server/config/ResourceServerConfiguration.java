@@ -9,8 +9,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 /*
 * 提供 user 信息，所以 oauth2-server 也是一个Resource Server
 * */
-@Configuration
-@EnableResourceServer
+//@Configuration
+//@EnableResourceServer
 //@Order(3)
 public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
 
