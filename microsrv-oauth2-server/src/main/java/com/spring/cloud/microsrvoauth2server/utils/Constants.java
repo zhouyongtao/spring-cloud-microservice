@@ -12,5 +12,7 @@ public class Constants {
     /**
      * 编码
      */
-    String UTF8 = "UTF-8";
+    public static String UTF8 = "UTF-8";
+
+    public static String GRANT_TYPE = "custom";
 }

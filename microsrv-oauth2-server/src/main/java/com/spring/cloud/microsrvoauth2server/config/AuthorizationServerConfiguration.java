@@ -1,8 +1,11 @@
 package com.spring.cloud.microsrvoauth2server.config;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.spring.cloud.microsrvoauth2server.service.impl.UserDetailsServiceImpl;
+import com.spring.cloud.microsrvoauth2server.utils.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,8 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.CompositeTokenGranter;
+import org.springframework.security.oauth2.provider.TokenGranter;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
@@ -93,6 +98,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     }
  */
 
+
     /*
      * 配置客户端详情信息(内存或JDBC来实现)
      *
@@ -139,12 +145,18 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
         // clients.withClientDetails(new JdbcClientDetailsService(dataSource));
     }
 
+    private TokenGranter tokenGranter(final AuthorizationServerEndpointsConfigurer endpoints) {
+        List<TokenGranter> granters = new ArrayList<TokenGranter>(Arrays.asList(endpoints.getTokenGranter()));
+        granters.add(new CustomTokenGranter(endpoints.getTokenServices(), endpoints.getClientDetailsService(), endpoints.getOAuth2RequestFactory(), Constants.GRANT_TYPE));
+        return new CompositeTokenGranter(granters);
+    }
+
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
         tokenEnhancerChain.setTokenEnhancers(Arrays.asList(tokenEnhancer(), jwtAccessTokenConverter()));
-
         endpoints.authenticationManager(authenticationManager)
+                .tokenGranter(tokenGranter(endpoints)) //自定义模式
                 .userDetailsService(userDetailsService())   //refresh_token 需要会有 UserDetailsService is required 错误
                 .tokenStore(new JdbcTokenStore(dataSource))
                 //.tokenStore(new RedisTokenStore(redisConnectionFactory))
