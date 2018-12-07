@@ -1,6 +1,6 @@
 package com.spring.cloud.microsrvoauth2server.config;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+@Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 //@Order(1)
@@ -27,11 +28,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //        return new BCryptPasswordEncoder();
 //    }
 
-    //    @Bean
+    //  @Bean
 //    public static NoOpPasswordEncoder passwordEncoder() {
 //        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
 //    }
-
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -60,8 +60,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
 
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -73,11 +71,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                .and()
 //                .formLogin().permitAll();
 
-
         http.csrf().disable();
 
-        http
-                .requestMatchers().antMatchers("/oauth/**","/login/**","/logout/**")
+        http.requestMatchers().antMatchers("/oauth/**", "/login/**", "/logout/**")
                 .and()
                 .authorizeRequests()
                 .antMatchers("/oauth/**").authenticated()
