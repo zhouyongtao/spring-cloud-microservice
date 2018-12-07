@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>授权</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h2>你是否授权client_id=client访问你的受保护资源?</h2>
+    <div style="height: 20px;"></div>
+    <form id="confirmationForm" name="confirmationForm"
+          action="../oauth/authorize" method="post">
+
+        <input name="user_oauth_approval" value="true" type="hidden"/>
+        <button class="btn btn-primary" type="submit">Approve</button>
+    </form>
+    <div style="height: 20px;"></div>
+    <form id="denyForm" name="confirmationForm"
+          action="../oauth/authorize" method="post">
+        <input name="user_oauth_approval" value="false" type="hidden"/>
+        <button class="btn btn-primary" type="submit">Deny</button>
+    </form>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"  crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

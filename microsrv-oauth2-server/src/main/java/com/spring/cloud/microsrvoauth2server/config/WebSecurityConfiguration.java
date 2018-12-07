@@ -38,7 +38,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
-
     /**
      * 配置授权的用户信息
      *
@@ -57,29 +56,31 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         //   .passwordEncoder(passwordEncoder());
 
         authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+        authenticationManagerBuilder.parentAuthenticationManager(authenticationManagerBean());
     }
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-//        http.requestMatchers()
-//                .antMatchers("/login", "/oauth/authorize")
+       // http.csrf().disable();
+//        http.requestMatchers().antMatchers("/oauth/**", "/login/**", "/logout/**")
 //                .and()
 //                .authorizeRequests()
-//                .anyRequest().authenticated()
+//                .antMatchers("/oauth/**").authenticated()
 //                .and()
-//                .formLogin().permitAll();
+//                .formLogin().permitAll(); //新增login form支持用户登录及授权
 
-        http.csrf().disable();
-
-        http.requestMatchers().antMatchers("/oauth/**", "/login/**", "/logout/**")
-                .and()
+        http
                 .authorizeRequests()
-                .antMatchers("/oauth/**").authenticated()
+                .antMatchers("/","/oauth/**","/login","/health", "/css/**").permitAll()
+                .anyRequest().authenticated()
                 .and()
-                .formLogin().permitAll(); //新增login form支持用户登录及授权
-
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll();
 
         //不拦截 oauth 开放的资源
 //        http.requestMatchers()
