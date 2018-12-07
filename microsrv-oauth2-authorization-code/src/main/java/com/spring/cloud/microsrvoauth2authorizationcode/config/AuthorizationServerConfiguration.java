@@ -33,15 +33,16 @@ import java.util.Map;
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
+
     @Autowired
     private AuthenticationManager authenticationManager;
+
     @Autowired
     private MyUserDetailsService userDetailsService;
 
-
     @Override
-    public void configure(final AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
-        oauthServer.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
+    public void configure(final AuthorizationServerSecurityConfigurer authorizationServerSecurityConfigurer) throws Exception {
+        authorizationServerSecurityConfigurer.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
     }
 
     @Override
@@ -52,7 +53,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .withClient("client") // client_id
                 .secret(secret) // client_secret
                 //.autoApprove(true)　　　／／如果为true　则不会跳转到授权页面，而是直接同意授权返回code
-                .authorizedGrantTypes("authorization_code","refresh_token") // 该client允许的授权类型
+                .authorizedGrantTypes("authorization_code", "refresh_token") // 该client允许的授权类型
                 .scopes("app"); // 允许的授权范围
     }
 
