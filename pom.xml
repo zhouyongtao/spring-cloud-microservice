@@ -23,7 +23,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Finchley SR2</spring-cloud.version>
+        <spring-cloud.version>Finchley.SR2</spring-cloud.version>
     </properties>
 
     <modules>
@@ -40,6 +40,8 @@
         <module>microsrv-spring-boot-admin-server</module>
         <module>microsrv-zuul-gateway</module>
         <module>microsrv-grpc-server</module>
+        <module>microsrv-oauth2-authorization-code</module>
+        <module>microsrv-spring-security-login</module>
     </modules>
 
     <dependencyManagement>
