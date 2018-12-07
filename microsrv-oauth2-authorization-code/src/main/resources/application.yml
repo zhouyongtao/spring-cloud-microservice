@@ -1,0 +1,14 @@
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: oauth2-server
+
+  thymeleaf:
+    cache: false
+
