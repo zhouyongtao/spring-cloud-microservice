@@ -25,6 +25,16 @@
 
 ```
 
+> Test
 - http://localhost:5000/oauth/authorize?response_type=code&client_id=client_test&redirect_uri=http://baidu.com&state=test
 - http://localhost:5000/oauth/authorize?client_id=client_test&redirect_uri=http://localhost:9000/callback&response_type=token&scope=read_profile&state=xyz
 
+
+> Spring Security 入门系列
+- http://www.spring4all.com/article/428
+- https://my.oschina.net/u/873386/blog/398018
+- https://my.oschina.net/taoyuanping/blog/809157
+- https://www.jianshu.com/p/5e3f732b81f4
+- https://qiita.com/kazuki43zoo/items/658eabbf0d6a60d3ed89
+- http://www.spring4all.com/article/577
+- http://www.spring4all.com/article/1789
