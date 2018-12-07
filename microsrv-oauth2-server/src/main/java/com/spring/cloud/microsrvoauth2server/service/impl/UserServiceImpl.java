@@ -1,6 +1,7 @@
 package com.spring.cloud.microsrvoauth2server.service.impl;
 
 import com.spring.cloud.microsrvoauth2server.entity.Users;
+import com.spring.cloud.microsrvoauth2server.exception.UserFriendlyException;
 import com.spring.cloud.microsrvoauth2server.repository.UserRepository;
 import com.spring.cloud.microsrvoauth2server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class UserServiceImpl implements UserService {
     public Users findByUsername(String userName) {
         Users user = userRepository.findByUsername(userName);
         if (user == null) {
-            //throw new UserFriendlyException("用户不存在!");
+            throw new UserFriendlyException("用户不存在!");
         }
         return user;
     }
