@@ -65,7 +65,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     private PasswordEncoder passwordEncoder;
 
     // 数据源
-    @Autowired
+    @Resource
     private DataSource dataSource;
 
     /**
