@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -64,7 +65,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     private PasswordEncoder passwordEncoder;
 
     // 数据源
-    @Resource
+    @Autowired
     private DataSource dataSource;
 
     /**
@@ -107,7 +108,8 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         // clients.withClientDetails(new JdbcClientDetailsService(dataSource));
         //初始化 Client 数据到 DB
-        clients.jdbc(dataSource);
+        clients.jdbc(this.dataSource)
+                .passwordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder());
 //                //clients.inMemory()
 //                .withClient("client_1")
 //                .authorizedGrantTypes("client_credentials")
