@@ -1,3 +1,8 @@
+- https://github.com/spring-projects/spring-security-oauth
+- https://docs.spring.io/spring-security-oauth2-boot/docs/current-SNAPSHOT/reference/htmlsingle/
+- https://connect2id.com/products/nimbus-jose-jwt
+- https://connect2id.com/learn
+- https://stackoverflow.com/questions/39773932/spring-oauth2-refresh-token-cannot-convert-access-token-to-json
 - curl https://uaa.run.pivotal.io/token_key
 ```
 {
