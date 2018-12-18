@@ -9,6 +9,8 @@ server:
 spring:
   application:
     name: microsrv-flowable
+  messages:
+    basename: messages
   aop:
     auto: true
     proxy-target-class: true
